@@ -1,22 +1,35 @@
-# checks that users enter a number that is more than zero
-valid = False
-while not valid:
+# functions go here
 
-    error = "P lease enter a number more than zero"
+# checks input is a number more than zero
+def num_check(question):
+    valid = False
+    while not valid:
 
-    try:
+        error = "Please enter a number more than zero"
 
-        # ask user to enter a number 
-        response = float(input("enter a number: "))
-   
-         # checks if number is more than zero
-        if response > 0:
-             valid = True
-   
-        # outputs error if input is invalid
-        else:
-            print(error)
-            print()
+        try:
+
+            # ask user to enter a number 
+            response = float(input(question))
     
-    except ValueError:
-        print(error)
+            # checks if number is more than zero
+            if response > 0:
+                return response
+    
+            # outputs error if input is invalid
+            else:
+                print(error)
+                print()
+        
+        except ValueError:
+            print(error)
+
+
+
+# Main routine goes here
+width = num_check("width: ")
+height = num_check("height: ")
+print()
+print("Width", width)
+print("height", height)
+print()
